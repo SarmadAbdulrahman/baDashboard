@@ -25,6 +25,10 @@
   <link rel="stylesheet" href="{{url('plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{url('plugins/summernote/summernote-bs4.min.css')}}">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+
+
 </head>
 @yield('SideBar')
 @yield('content')
