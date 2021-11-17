@@ -12,18 +12,33 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        //GetRejected
 
-        $data=DB::select('call ShowDailyOrder()');
+        $DTDailyOrders=$DailyOrders=DB::select('call ShowDailyOrder()');
+        $DailyRejectedOrders=DB::select('call GetRejected()');
+        $DailySuccessOrders=DB::select('call getsuccessorder()');
 
-        dd($data);
+        $GetPendingOrderOfMainLab=DB::select('call GetPendingOrderOfMainLab()');
+
+
+        switch($request->type){
+            case '1':$DTDailyOrders=$DailyOrders;break;
+            case '2':$DTDailyOrders=$DailyRejectedOrders;break;
+            case '4':$DTDailyOrders=$DailySuccessOrders;break;
+            case '5':$DTDailyOrders=$GetPendingOrderOfMainLab;break;
+        }
+
 
         $CurrentOrders=[];
         $infromationArray=Array(
-            "NewOrder"=>5,
-            "CurrentOrders"=>$CurrentOrders
+            "NewOrder"=>sizeof($DailyOrders),
+            "DailyRejectedOrders"=>sizeof($DailyRejectedOrders),
+            "GetPendingOrderOfMainLab"=>sizeof($GetPendingOrderOfMainLab),
+            "DailySuccessOrders"=>sizeof($DailySuccessOrders),
+            "CurrentOrders"=>$CurrentOrders,
+            "DailyOrders"=>$DTDailyOrders
         );
         return view("welcome",$infromationArray);
     }
