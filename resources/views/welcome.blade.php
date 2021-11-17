@@ -174,7 +174,7 @@
 @section('js')
 <script>
 $(document).ready(function() {
-   // alert("sss");
+
     $('#example').DataTable();
 } );
 </script>
