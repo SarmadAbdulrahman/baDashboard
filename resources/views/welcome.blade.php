@@ -122,6 +122,7 @@
                                                 <th>price</th>
                                                 <th>PatientCode</th>
                                                 <th>DriverMan</th>
+                                                <th>Action's</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -134,6 +135,11 @@
                                                 <td>{{ $DailyOrder->price }}</td>
                                                 <td>{{ $DailyOrder->PatientCode }}</td>
                                                 <td>{{ $DailyOrder->DriverMan }}</td>
+                                                <td>
+                                                    <button class="btn btn-warring">
+                                                    <i class="fas fa-map-pin OrdersOnline"></i>
+                                                    </button>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
@@ -176,6 +182,10 @@
 $(document).ready(function() {
 
     $('#example').DataTable();
+    $('body').on('click','.OrdersOnline',function(){
+            alert("# this is when i click");
+    });
+
 } );
 </script>
 @endsection
