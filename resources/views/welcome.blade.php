@@ -186,7 +186,48 @@ $(document).ready(function() {
             alert("# this is when i click");
     });
 
-} );
+
+
+
+ var webSocket = new WebSocket('wss://labmirsal.herokuapp.com/api/websocket_endpoint');
+
+webSocket.onerror = function(event) {
+    onError(event)
+};
+
+webSocket.onopen = function(event) {
+    onOpen(event)
+};
+
+
+webSocket.onmessage = function(event){
+
+
+   console.log(event);
+
+}
+
+
+
+
+
+function onOpen(event) {
+
+$('.OrdersOnline').addClass("text-danger");
+}
+
+function onError(event) {
+    alert(event.data);
+}
+
+function start() {
+    var text = "ss";
+
+    webSocket.send(text);
+    return false;
+}
+
+});
 </script>
 @endsection
 
