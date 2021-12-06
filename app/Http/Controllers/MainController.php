@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Information;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -107,5 +108,32 @@ class MainController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function Information()
+    {
+
+
+        $Information=Information::all();
+      //  dd($Information);
+        $infromationArray=Array(
+            "Information"=>$Information
+        );
+        return view("Information",$infromationArray);
+    }
+
+
+    public function StoreInformation(Request $request)
+    {
+
+        Information::create([
+            'title'=>$request["title"],
+            'description'=>$request["Description"],
+            'type'=>'others'
+        ]);
+
+
+        return redirect()->back();
+
     }
 }

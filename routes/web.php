@@ -15,3 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\MainController@index');
 //[UserController::class, 'index']
+
+// Information
+Route::get('/Information','App\Http\Controllers\MainController@Information');
+Route::post('/StoreInformation','App\Http\Controllers\MainController@StoreInformation');
+

@@ -181,6 +181,7 @@
 <script>
 $(document).ready(function() {
 
+    var audio = new Audio('mixki.mp3');
     $('#example').DataTable();
     $('body').on('click','.OrdersOnline',function(){
             alert("# this is when i click");
@@ -212,7 +213,7 @@ webSocket.onmessage = function(event){
 
 
 function onOpen(event) {
-
+    audio.play();
 $('.OrdersOnline').addClass("text-danger");
 }
 

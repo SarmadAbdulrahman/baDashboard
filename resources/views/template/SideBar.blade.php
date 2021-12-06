@@ -212,6 +212,18 @@
                       <p>Operation Tracks</p>
                     </a>
                   </li>
+
+
+                    <li class="nav-item">
+                        <a href="{{url('Information')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>المعلومات</p>
+                        </a>
+                    </li>
+
+
+
+
                 </ul>
               </li>
               <li class="nav-item">
