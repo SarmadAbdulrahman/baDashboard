@@ -51,15 +51,20 @@
                                                 <div class="form-row align-items-center">
                                                     <div class="col-lg-12">
                                                         <label class="sr-only" for="inlineFormInput">العنوان</label>
-                                                        <input dir="rtl" type="text" name="title" class="form-control mb-2" id="inlineFormInput" placeholder="العنوان">
+                                                        <input dir="rtl" type="text" name="title"
+                                                               class="form-control mb-2" id="inlineFormInput"
+                                                               placeholder="العنوان">
                                                     </div>
                                                     <div class="col-lg-12">
-                                                        <label class="sr-only" for="inlineFormInputGroup">التفاصيل</label>
+                                                        <label class="sr-only"
+                                                               for="inlineFormInputGroup">التفاصيل</label>
 
-                                                        <textarea dir="rtl" name="Description" class="form-control" id="exampleFormControlTextarea1"  placeholder="التفاصيل"></textarea>
+                                                        <textarea dir="rtl" name="Description" class="form-control"
+                                                                  id="exampleFormControlTextarea1"
+                                                                  placeholder="التفاصيل"></textarea>
 
-                                                        </div>
                                                     </div>
+                                                </div>
 
 
                                                 <br>
@@ -70,27 +75,27 @@
                                             </form>
 
 
-                                                    </div>
-
-
-                                                </div>
-
-
                                         </div>
+
+
                                     </div>
+
+
                                 </div>
-
-
-        </section><!-- /.card-body -->
+                            </div>
                         </div>
-                        <!-- /.card -->
 
-                    <!-- /.Left col -->
-                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
 
-                    <!-- right col -->
+                    </section><!-- /.card-body -->
                 </div>
-                <!-- /.row (main row) -->
+                <!-- /.card -->
+
+                <!-- /.Left col -->
+                <!-- right col (We are only adding the ID to make the widgets sortable)-->
+
+                <!-- right col -->
+            </div>
+            <!-- /.row (main row) -->
 
         </section>
 
@@ -108,7 +113,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-pie mr-1"></i>
-                                        عرض المعلومات الطبية
+                                    عرض المعلومات الطبية
                                 </h3>
 
                             </div><!-- /.card-header -->
@@ -122,7 +127,7 @@
                                             <table id="example" class="display" style="width:100%">
                                                 <thead>
                                                 <tr>
-                                                     <th>العنوان</th>
+                                                    <th>العنوان</th>
                                                     <th>التفاصيل</th>
                                                     <th>النوع</th>
                                                 </tr>
@@ -130,13 +135,13 @@
                                                 <tbody>
                                                 @foreach ($Information as $Info )
                                                     <tr>
-                                                    <td>{{$Info->title}}</td>
-                                                    <td dir="rtl">
-                                                              {{$Info->description}}
+                                                        <td>{{$Info->title}}</td>
+                                                        <td dir="rtl">
+                                                            {{$Info->description}}
 
 
-                                                    </td>
-                                                    <td>{{$Info->type}}</td>
+                                                        </td>
+                                                        <td>{{$Info->type}}</td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
@@ -148,7 +153,6 @@
                                                 </tr>
                                                 </tfoot>
                                             </table>
-
 
 
                                         </div>
@@ -172,28 +176,28 @@
 @extends('template.Footer')
 @section('js')
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
 
-            $('#example  th').each( function () {
+            $('#example  th').each(function () {
                 var title = $(this).text();
-                $(this).html( '<input type="text" placeholder='+title+' />' );
-            } );
+                $(this).html('<input type="text" placeholder=' + title + ' />');
+            });
             //DataTable
             var table = $('#example').DataTable({
                 initComplete: function () {
                     // Apply the search
-                    this.api().columns().every( function () {
+                    this.api().columns().every(function () {
                         var that = this;
 
-                        $( 'input' ).on( 'keyup change clear', function () {
-                            if ( that.search() !== this.value ) {
+                        $('input').on('keyup change clear', function () {
+                            if (that.search() !== this.value) {
                                 that
-                                    .search( this.value )
+                                    .search(this.value)
                                     .draw();
                             }
-                        } );
-                    } );
+                        });
+                    });
                 }
             });
 
